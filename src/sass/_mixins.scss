@@ -1,0 +1,212 @@
+@mixin clear {
+	&:before, &:after { display: table;	content: ''; line-height: 0; }
+	&:after { clear: both; }
+}
+
+@mixin float($value) {
+	float: $value;
+}
+
+@mixin flex($align, $justify) {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: $align;
+	-ms-align-items: $align;
+	align-items: $align;
+	-webkit-justify-content: $justify;
+	-ms-justify-content: $justify;
+	justify-content: $justify;
+} 
+
+@mixin x-shadow($values) {
+	-webkit-box-shadow: $values;
+	-moz-box-shadow: $values;
+	box-shadow: $values;
+}
+
+@mixin x-animation($values) {
+	-webkit-animation: $values;
+	-moz-animation: $values;
+	-ms-animation: $values;
+	animation: $values;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+}
+
+@mixin x-animation-iteration-count($value) {
+	-webkit-animation-iteration-count: $value;
+	-moz-animation-iteration-count: $value;
+	-ms-animation-iteration-count: $value;
+	-o-animation-iteration-count: $value;
+	animation-iteration-count: $value;
+}
+
+@mixin x-transform-origin($value) {
+	-webkit-transform-origin: $value;
+	-moz-transform-origin: $value;
+	-ms-transform-origin: $value;
+	-o-transform-origin: $value;
+	transform-origin: $value;
+}
+
+@mixin x-keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+@mixin transition($expression) {
+	-webkit-transition: $expression;
+	-moz-transition: $expression;
+	-o-transition: $expression;
+	transition: $expression;
+}
+
+@function linear() 				{ @return cubic-bezier(0.250, 0.250, 0.750, 0.750); }
+@function ease() 				{ @return cubic-bezier(0.250, 0.100, 0.250, 1.000); }
+
+@function ease-in() 			{ @return cubic-bezier(0.420, 0.000, 1.000, 1.000); }
+@function ease-in-quad() 		{ @return cubic-bezier(0.550, 0.085, 0.680, 0.530); }
+@function ease-in-cubic() 		{ @return cubic-bezier(0.550, 0.055, 0.675, 0.190); }
+@function ease-in-quart() 		{ @return cubic-bezier(0.895, 0.030, 0.685, 0.220); }
+@function ease-in-quint() 		{ @return cubic-bezier(0.755, 0.050, 0.855, 0.060); }
+@function ease-in-sine() 		{ @return cubic-bezier(0.470, 0.000, 0.745, 0.715); }
+@function ease-in-expo() 		{ @return cubic-bezier(0.950, 0.050, 0.795, 0.035); } 
+@function ease-in-circ() 		{ @return cubic-bezier(0.600, 0.040, 0.980, 0.335); }
+
+@function ease-out() 			{ @return cubic-bezier(0.000, 0.000, 0.580, 1.000); }
+@function ease-out-quad() 		{ @return cubic-bezier(0.250, 0.460, 0.450, 0.940); }
+@function ease-out-cubic() 		{ @return cubic-bezier(0.215, 0.610, 0.355, 1.000); }
+@function ease-out-quart() 		{ @return cubic-bezier(0.165, 0.840, 0.440, 1.000); }
+@function ease-out-quint() 		{ @return cubic-bezier(0.230, 1.000, 0.320, 1.000); }
+@function ease-out-sine() 		{ @return cubic-bezier(0.390, 0.575, 0.565, 1.000); }
+@function ease-out-expo() 		{ @return cubic-bezier(0.190, 1.000, 0.220, 1.000); }
+@function ease-out-circ() 		{ @return cubic-bezier(0.075, 0.820, 0.165, 1.000); }
+
+@function ease-in-out() 		{ @return cubic-bezier(0.420, 0.000, 0.580, 1.000); }
+@function ease-in-out-quad() 	{ @return cubic-bezier(0.455, 0.030, 0.515, 0.955); }
+@function ease-in-out-cubic() 	{ @return cubic-bezier(0.645, 0.045, 0.355, 1.000); }
+@function ease-in-out-quart() 	{ @return cubic-bezier(0.770, 0.000, 0.175, 1.000); }
+@function ease-in-out-quint() 	{ @return cubic-bezier(0.860, 0.000, 0.070, 1.000); }
+@function ease-in-out-sine() 	{ @return cubic-bezier(0.445, 0.050, 0.550, 0.950); }
+@function ease-in-out-expo() 	{ @return cubic-bezier(1.000, 0.000, 0.000, 1.000); }
+@function ease-in-out-circ() 	{ @return cubic-bezier(0.785, 0.135, 0.150, 0.860); }
+
+@mixin x-position($top: false, $right: false, $bottom: false, $left: false) {
+	/**
+	 * Example
+	 *
+	 * @include x-position($top: 10px, $left: 5px);
+	 */
+	position: absolute;
+	@if type_of($left) == number {
+		left: $left;
+	}
+	@if type_of($right) == number {
+		right: $right;
+	}
+	@if type_of($top) == number {
+		top: $top;
+	}
+	@if type_of($bottom) == number {
+		bottom: $bottom;
+	}
+}
+
+@mixin x-fixed($top: false, $right: false, $bottom: false, $left: false) {
+	position: fixed;
+	@if type_of($left) == number {
+		left: $left;
+	}
+	@if type_of($right) == number {
+		right: $right;
+	}
+	@if type_of($top) == number {
+		top: $top;
+	}
+	@if type_of($bottom) == number {
+		bottom: $bottom;
+	}
+}
+
+@mixin border-radius($radius: false, $topleft: false, $topright: false, $bottomright: false, $bottomleft: false) {
+	/**
+	 * Example
+	 *
+	 * @include border-radius(20px);
+	 * @include border-radius($topleft: 20px);
+	 */
+	@if type_of($radius) == number {
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		border-radius: $radius;
+	}
+	@if type_of($topleft) == number {
+		-webkit-border-top-left-radius: $topleft;
+		-moz-border-top-left-radius: $topleft;
+		border-top-left-radius: $topleft;
+	}
+	@if type_of($topright) == number {
+		-webkit-border-top-right-radius: $topright;
+		-moz-border-top-right-radius: $topright;
+		border-top-right-radius: $topright;
+	}
+	@if type_of($bottomleft) == number {
+		-webkit-border-bottom-left-radius: $bottomleft;
+		-moz-border-bottom-left-radius: $bottomleft;
+		border-bottom-left-radius: $bottomleft;
+	}
+	@if type_of($bottomright) == number {
+		-webkit-border-bottom-right-radius: $bottomright;
+		-moz-border-bottom-right-radius: $bottomright;
+		border-bottom-right-radius: $bottomright;
+	}
+}
+
+@mixin respond-to($size) {
+	@media only screen and (max-width: $size) { @content; }
+}
+
+// Grid Example
+@mixin grid($width:1100px, $margin:20px, $columns:12, $prefix:true, $push:true) {
+	$columnWidth: $width / $columns;
+
+	.grid {
+		display: inline;
+		float: left;
+		margin-left: $margin / 2;
+		margin-right: $margin / 2;
+	}
+
+	@for $i from 1 through $columns {
+		.grid_#{$i} {
+			@extend .grid;
+			width: $i * $columnWidth - $margin;
+		}
+
+		@if $prefix == true {
+			.prefix_#{$i} {
+				padding-left: $i * $columnWidth;
+			}
+			.suffix_#{$i} {
+				padding-right: $i * $columnWidth;
+			}
+		}
+
+		@if $push == true {
+			.push_#{$i} {
+				left: $i * $columnWidth;
+			}
+			.pull_#{$i} {
+				left: -$i * $columnWidth;
+			}
+ 		}
+	}
+}
