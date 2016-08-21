@@ -1,7 +1,7 @@
 var elixir = require('laravel-elixir');
 elixir.config.assetsPath = 'src';
-elixir.config.assetsPath = 'pub';
+elixir.config.publicPath = 'pub';
 
 elixir(function(mix) {
-	mix.sass('style.scss', 'pub/css/style.min.css');
+	mix.sass('style.scss', 'css/style.min.css');
 });
