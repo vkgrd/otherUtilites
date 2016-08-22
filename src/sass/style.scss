@@ -49,4 +49,35 @@
 	}
 }
 
+.catalog {
+	.container {
+		margin: 20px auto 30px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		.element {
+			margin: 10px;
+			width: 70px;
+			height: 70px;
+			line-height: 70px;
+			text-align: center;
+			background-color: #f0f0f0;
+			border: 1px solid #f0f0f0;
+			border-radius: 7px;
+			font-size: 25px;
+			font-weight: 300;
+			color: #888;
+			transition: all 250ms ease-in-out;
+			&:hover {
+				background-color: white;
+				color: $baseColor;
+				cursor: pointer;
+				box-shadow: 0 0 15px rgba(0, 0, 0, 0.22);
+				border-color: lighten(#000, 80);
+			}
+		}
+	}
+}
+
 @import "adaptive";
