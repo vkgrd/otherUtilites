@@ -6,4 +6,47 @@
 @import "font-awesome";
 @import "carousel";
 
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	font-family: 'Open Sans';
+}
+
+.header {
+	@include clear;
+	background-color: $baseColor;
+	min-height: 40px;
+	color: white;
+	a {
+		color: white;
+		text-decoration: none;
+	}
+	.siteName {
+		float: left;
+		$siteNameWidth: 140px;
+		width: $siteNameWidth;
+		line-height: 40px;
+	}
+	.siteNav {
+		float: right;
+		width: calc(100% - $siteNameWidth);
+		nav {
+			li {
+				list-style: none;
+				display: inline-block;
+				margin-right: -4px;
+				a {
+					display: block;
+					line-height: 40px;
+					font-size: 20px;
+					padding: 0 10px;
+					&:hover {
+						background-color: lighten($baseColor, 5);
+					}
+				}
+			}
+		}
+	}
+}
+
 @import "adaptive";
