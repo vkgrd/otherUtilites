@@ -5,7 +5,15 @@
 	$sOgImage = $this->config->item('siteOgImage');
 
 	switch($this->uri->segment(1)) {
-
+		case 'utils':
+			switch($this->uri->segment(2)) {
+				case 'vkClearCache':
+					$pageTitle = 'VK Clear Link Cache';
+					$pageDescription = 'Очистка кэша ссылок ВКонтакте по URL';
+					$pageKeywords = 'ссылка, вконтакте, разместить ссылку, неправильно отображается ссылка';
+				break;
+			}
+		break;
 	}
 	if(isset($customTitle)) {
 		$pageTitle = $customTitle;

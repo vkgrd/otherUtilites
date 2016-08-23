@@ -57,10 +57,10 @@
 		justify-content: flex-start;
 		flex-wrap: wrap;
 		.element {
-			margin: 10px;
-			width: 70px;
-			height: 70px;
-			line-height: 70px;
+			margin: 10px auto;
+			width: calc(100% / 7);
+			height: 50px;
+			line-height: 50px;
 			text-align: center;
 			background-color: #f0f0f0;
 			border: 1px solid #f0f0f0;
